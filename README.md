@@ -36,7 +36,9 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 npm install
 ```
 ## Demo 
-<video controls src="20260226-0639-41.7507300.mp4" title="Demo Video"></video>
+* Please refer to the youtube link below 
+https://youtu.be/bM5PHjzR0mE
+
 ### Running Locally
 
 To start the Vite development server, run:
