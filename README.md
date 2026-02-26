@@ -4,7 +4,9 @@ In this project, we colaborate with Badan Warisan Malaysia (BWM), to develop a w
 ## 🚀 Tech Stack
 
 * **Framework:** React (via [Vite](vite.config.js))
-* **Routing:** React Router (configured for SPA with Vercel via `vercel.json` and `public/_redirects`)
+* **AI Model:** GEMINI API
+* **Database:** Qdrant vector database 
+* **Backend:** Spring-boot, SpringAI
 * **Linting:** ESLint ([eslint.config.js](eslint.config.js))
 * **Deployment:** Vercel
 
@@ -12,55 +14,61 @@ In this project, we colaborate with Badan Warisan Malaysia (BWM), to develop a w
 
 The workspace is organized as follows:
 
-* **`src/components/`**: Contains reusable UI elements like the `Header`, `Footer`, and an interactive `Chatbox` feature.
-* **`src/pages/`**: Contains the main views of the application:
-  * `Homepage` - The main landing page.
-  * `BalaiPage`, `DapurPage`, `RumahIbuPage`, `SelangPage` - Detailed explorations of specific architectural sections.
-  * `OrnamentPage`, `IkatPage` - Information on traditional decorations and tying techniques.
-  * `ClimatePage` - Details on how the architecture adapts to the local climate.
-  * `QuizPage` - An interactive quiz to test the user's knowledge.
-  * `CategoryPage` - Browsing interface for different topics.
+## Project Structure
+
+- [backend/](backend/) — Java backend service
+  - [backend/pom.xml](backend/pom.xml)
+  - [backend/src/main/java/](backend/src/main/java/)
+  - [backend/src/main/resources/](backend/src/main/resources/)
+  - [backend/src/test/java/](backend/src/test/java/)
+- [frontend/](frontend/) — React frontend
+  - [frontend/package.json](frontend/package.json)
+  - [frontend/src/App.jsx](frontend/src/App.jsx)
+  - [frontend/src/main.jsx](frontend/src/main.jsx)
+  - [frontend/src/components/](frontend/src/components/)
+  - [frontend/src/pages/](frontend/src/pages/)
+- [.gitignore](.gitignore)
 
 ## 🛠️ Getting Started
 
 ### Prerequisites
-
-Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+- **Node.js** 18+ and npm
+- **Java** 17+ (or version required by [backend/pom.xml](backend/pom.xml))
+- Maven (or use [backend/mvnw](backend/mvnw) / [backend/mvnw.cmd](backend/mvnw.cmd))
 
 ### Installation
 
 1. Clone the repository.
 2. Install the dependencies:
 
-```sh
-npm install
-```
 ## Demo 
 * Please refer to the youtube link below 
 https://youtu.be/bM5PHjzR0mE
 
 ### Running Locally
 
-To start the Vite development server, run:
+### 1) Backend
 
-```sh
-npm run dev
-```
+From [backend/](backend/):
 
-Open your browser and navigate to the local URL provided in the terminal (usually `http://localhost:5173`).
+- Windows:
+  `mvnw.cmd spring-boot:run`
+- macOS/Linux:
+  `./mvnw spring-boot:run`
 
-### Building for Production
+Or with Maven installed:
+`mvn spring-boot:run`
 
-To create a production-ready build, run:
 
-```sh
-npm run build
-```
+### 2) Frontend
 
-The compiled assets will be generated in the `dist` folder.
+From [frontend/](frontend/):
 
-## 🌍 Deployment
+1. Install dependencies: `npm install`
+2. Start dev server: `npm run dev`
 
-This project is configured for seamless deployment on Vercel, utilizing the [vercel.json](vercel.json) configuration file. 
-
-For detailed deployment instructions, please refer to the [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md).
+## Environment Variables 
+- Create local env files as needed:
+  - `frontend/.env.local`
+  - `backend/.env` (if used)
+- Keep secrets out of source control (see [.gitignore](.gitignore)).
